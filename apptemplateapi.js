@@ -53,3 +53,56 @@ function resetFormFields() {
     $('#email').val('');
     $('#description').val('');
 }
+
+
+// Fonction pour rediriger l'utilisateur vers l'URL d'autorisation OAuth de Salesforce
+$('#loginButton').click(function() {
+    // Définissez ici l'URL d'autorisation OAuth de Salesforce
+    var oauthUrl = 'https://anagra3-dev-ed.develop.my.salesforce.com/services/oauth2/authorize' +
+        '?response_type=code' +
+        '&client_id=3MVG9suI4ZYS8sz4_dZxCLGgLdAUtdh.Rh6tsuH7PkyCzt1HhLclGlZ_D3HUYNxZ5Mp5Ps57vNwXx_4SLR0nf' +
+        '&redirect_uri=https://oulaysrlucien.github.io/SupportClientCasesManagement/callback'; // L'URL de rappel de votre portail
+
+    // Redirigez l'utilisateur vers l'URL d'autorisation OAuth de Salesforce
+    window.location.href = oauthUrl;
+});
+
+// Fonction pour échanger le code d'autorisation contre un jeton d'accès OAuth
+function exchangeCodeForAccessToken(code) {
+    // Paramètres nécessaires pour l'échange du code d'autorisation
+    var tokenEndpoint = 'https://anagra3-dev-ed.develop.my.salesforce.com/services/oauth2/token'; // L'endpoint de l'échange de jeton OAuth
+    var client_id = '3MVG9suI4ZYS8sz4_dZxCLGgLdAUtdh.Rh6tsuH7PkyCzt1HhLclGlZ_D3HUYNxZ5Mp5Ps57vNwXx_4SLR0nf'; // Remplacez VOTRE_CONSUMER_KEY par votre Consumer Key Salesforce
+    var client_secret = '860FAD9240DEC7085D9C49E875B396FD8D37B72F722A68962D4C20D13A694E71'; // Remplacez VOTRE_CONSUMER_SECRET par votre Consumer Secret Salesforce
+    var redirect_uri = 'https://oulaysrlucien.github.io/SupportClientCasesManagement/callback'; // L'URL de rappel de votre portail
+    var grant_type = 'authorization_code';
+    
+    // Les données à envoyer dans la requête POST pour l'échange du code d'autorisation
+    var requestData = {
+        code: code,
+        client_id: client_id,
+        client_secret: client_secret,
+        redirect_uri: redirect_uri,
+        grant_type: grant_type
+    };
+
+    // Envoi de la requête POST pour l'échange du code d'autorisation
+    $.ajax({
+        url: tokenEndpoint,
+        method: 'POST',
+        data: requestData,
+        dataType: 'json',
+        success: function(response) {
+            // Gestion de la réponse réussie (obtention du jeton d'accès)
+            var access_token = response.access_token;
+            var refresh_token = response.refresh_token;
+            // Utilisez access_token pour effectuer des requêtes vers Salesforce au nom de l'utilisateur authentifié
+            // Stockez access_token et refresh_token de manière sécurisée pour les utilisations futures
+        },
+        error: function(error) {
+            // Gestion des erreurs lors de l'échange du code d'autorisation
+            console.error('Erreur lors de l\'échange du code d\'autorisation', error);
+            // Gérez les erreurs et affichez un message d'erreur à l'utilisateur si nécessaire
+        }
+    });
+}
+

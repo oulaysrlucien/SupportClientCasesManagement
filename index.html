@@ -15,28 +15,38 @@
         <div id="ticketForm" class="card p-4 mb-4">
             <h2 class="card-title">Soumettre un Ticket</h2>
             <div class="card-body">
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="firstName">Prénom</label>
-                        <input type="text" class="form-control" id="firstName" placeholder="Entrez votre prénom">
+
+                <!-- Bouton de connexion OAuth -->
+                <button type="button" class="btn btn-primary" id="loginButton">Se connecter à Salesforce</button>
+
+
+                <!-- Formulaire pour soumettre un ticket (conservez votre formulaire existant) -->
+                <!-- ... Votre formulaire actuel ... -->
+                <div class="card-body">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="firstName">Prénom</label>
+                            <input type="text" class="form-control" id="firstName" placeholder="Entrez votre prénom">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="lastName">Nom</label>
+                            <input type="text" class="form-control" id="lastName" placeholder="Entrez votre nom">
+                        </div>
                     </div>
-                    <div class="form-group col-md-6">
-                        <label for="lastName">Nom</label>
-                        <input type="text" class="form-control" id="lastName" placeholder="Entrez votre nom">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Entrez votre email">
                     </div>
+                    <div class="form-group">
+                        <label for="description">Description du problème</label>
+                        <textarea class="form-control" id="description" rows="3" placeholder="Décrivez votre problème"></textarea>
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="submitTicket()">Soumettre</button>
                 </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" class="form-control" id="email" placeholder="Entrez votre email">
-                </div>
-                <div class="form-group">
-                    <label for="description">Description du problème</label>
-                    <textarea class="form-control" id="description" rows="3" placeholder="Décrivez votre problème"></textarea>
-                </div>
-                <button type="button" class="btn btn-primary" onclick="submitTicket()">Soumettre</button>
+            </div>
+                <!-- Fin Formulaire -->
             </div>
         </div>
-        
 
         <div id="ticketsList">
             <h2>Liste de Vos Tickets</h2>
@@ -60,6 +70,8 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="apptemplateapi.js"></script> <!-- Votre script personnalisé -->
+    <!-- Ajout du fichier JS pour gérer l'authentification OAuth -->
+    <!--<script src="oauth.js"></script>--> <!-- Vous devrez créer ce fichier -->
+    <script src="apptemplateapi.js"></script>
 </body>
 </html>
