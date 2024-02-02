@@ -61,7 +61,7 @@ $('#loginButton').click(function() {
     var oauthUrl = 'https://anagra3-dev-ed.develop.my.salesforce.com/services/oauth2/authorize' +
         '?response_type=code' +
         '&client_id=3MVG9suI4ZYS8sz4_dZxCLGgLdAUtdh.Rh6tsuH7PkyCzt1HhLclGlZ_D3HUYNxZ5Mp5Ps57vNwXx_4SLR0nf' +
-        '&redirect_uri=https://oulaysrlucien.github.io/SupportClientCasesManagement/callback'; // L'URL de rappel de votre portail
+        '&redirect_uri=https://oulaysrlucien.github.io/SupportClientCasesManagement'; // L'URL de rappel de votre portail
 
     // Redirigez l'utilisateur vers l'URL d'autorisation OAuth de Salesforce
     window.location.href = oauthUrl;
@@ -73,7 +73,7 @@ function exchangeCodeForAccessToken(code) {
     var tokenEndpoint = 'https://anagra3-dev-ed.develop.my.salesforce.com/services/oauth2/token'; // L'endpoint de l'échange de jeton OAuth
     var client_id = '3MVG9suI4ZYS8sz4_dZxCLGgLdAUtdh.Rh6tsuH7PkyCzt1HhLclGlZ_D3HUYNxZ5Mp5Ps57vNwXx_4SLR0nf'; // Remplacez VOTRE_CONSUMER_KEY par votre Consumer Key Salesforce
     var client_secret = '860FAD9240DEC7085D9C49E875B396FD8D37B72F722A68962D4C20D13A694E71'; // Remplacez VOTRE_CONSUMER_SECRET par votre Consumer Secret Salesforce
-    var redirect_uri = 'https://oulaysrlucien.github.io/SupportClientCasesManagement/callback'; // L'URL de rappel de votre portail
+    var redirect_uri = 'https://oulaysrlucien.github.io/SupportClientCasesManagement'; // L'URL de rappel de votre portail
     var grant_type = 'authorization_code';
     
     // Les données à envoyer dans la requête POST pour l'échange du code d'autorisation
