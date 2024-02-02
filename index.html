@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portail de Support Client</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Portail de Support Client</h1>
+
+        <div id="ticketForm" class="card p-4 mb-4">
+            <h2 class="card-title">Soumettre un Ticket</h2>
+            <div class="card-body">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="firstName">Prénom</label>
+                        <input type="text" class="form-control" id="firstName" placeholder="Entrez votre prénom">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="lastName">Nom</label>
+                        <input type="text" class="form-control" id="lastName" placeholder="Entrez votre nom">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" placeholder="Entrez votre email">
+                </div>
+                <div class="form-group">
+                    <label for="description">Description du problème</label>
+                    <textarea class="form-control" id="description" rows="3" placeholder="Décrivez votre problème"></textarea>
+                </div>
+                <button type="button" class="btn btn-primary" onclick="submitTicket()">Soumettre</button>
+            </div>
+        </div>
+        
+
+        <div id="ticketsList">
+            <h2>Liste de Vos Tickets</h2>
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Sujet</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Date de Soumission</th>
+                    </tr>
+                </thead>
+                <tbody id="ticketsTableBody">
+                    <!-- Les lignes de ticket seront ajoutées ici dynamiquement -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Bootstrap et jQuery JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="apptemplateapi.js"></script> <!-- Votre script personnalisé -->
+</body>
+</html>
