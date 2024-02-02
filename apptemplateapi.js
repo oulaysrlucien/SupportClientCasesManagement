@@ -60,8 +60,8 @@ $('#loginButton').click(function() {
     // Définissez ici l'URL d'autorisation OAuth de Salesforce
     var oauthUrl = 'https://anagra3-dev-ed.develop.my.salesforce.com/services/oauth2/authorize' +
         '?response_type=code' +
-        '&client_id=3MVG9suI4ZYS8sz4_dZxCLGgLdAUtdh.Rh6tsuH7PkyCzt1HhLclGlZ_D3HUYNxZ5Mp5Ps57vNwXx_4SLR0nf' +
-        '&redirect_uri=https://oulaysrlucien.github.io/SupportClientCasesManagement'; // L'URL de rappel de votre portail
+        '&client_id=3MVG9suI4ZYS8sz4_dZxCLGgLdDfXi7Tj8Q7t9GaD8fdWFhZxWhLqcvlAuvhMtOZaqN7E21hQRQ_f2U0hFowd' +
+        '&redirect_uri=https://oulaysrlucien.github.io/SupportClientCasesManagement/'; // L'URL de rappel de votre portail
 
     // Redirigez l'utilisateur vers l'URL d'autorisation OAuth de Salesforce
     window.location.href = oauthUrl;
@@ -71,9 +71,9 @@ $('#loginButton').click(function() {
 function exchangeCodeForAccessToken(code) {
     // Paramètres nécessaires pour l'échange du code d'autorisation
     var tokenEndpoint = 'https://anagra3-dev-ed.develop.my.salesforce.com/services/oauth2/token'; // L'endpoint de l'échange de jeton OAuth
-    var client_id = '3MVG9suI4ZYS8sz4_dZxCLGgLdAUtdh.Rh6tsuH7PkyCzt1HhLclGlZ_D3HUYNxZ5Mp5Ps57vNwXx_4SLR0nf'; // Remplacez VOTRE_CONSUMER_KEY par votre Consumer Key Salesforce
-    var client_secret = '860FAD9240DEC7085D9C49E875B396FD8D37B72F722A68962D4C20D13A694E71'; // Remplacez VOTRE_CONSUMER_SECRET par votre Consumer Secret Salesforce
-    var redirect_uri = 'https://oulaysrlucien.github.io/SupportClientCasesManagement'; // L'URL de rappel de votre portail
+    var client_id = '3MVG9suI4ZYS8sz4_dZxCLGgLdDfXi7Tj8Q7t9GaD8fdWFhZxWhLqcvlAuvhMtOZaqN7E21hQRQ_f2U0hFowd'; // Remplacez VOTRE_CONSUMER_KEY par votre Consumer Key Salesforce
+    var client_secret = '88E3C67BB714AC343D1EFA699054DB1498C90695DA5087C0A6744A65615A5462F'; // Remplacez VOTRE_CONSUMER_SECRET par votre Consumer Secret Salesforce
+    var redirect_uri = 'https://oulaysrlucien.github.io/SupportClientCasesManagement/'; // L'URL de rappel de votre portail
     var grant_type = 'authorization_code';
     
     // Les données à envoyer dans la requête POST pour l'échange du code d'autorisation
